@@ -7,13 +7,9 @@ def main():
 
 
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
-    client_connection, client_address =server_socket.accept() # wait for client
-# get client request
-    request = client_connection.recv(1024).decode
-    response= b"HTTP/1.1 200 OK\r\n\r\n"
-    server_socket.send(response)
-    server_socket.close()
-    print(response)
+    server_socket.accept() # wait for client
+    server_socket.accept()[0].sendall(b"HTTP/1.1 200 OK\r\n\r\n")
+
 
 
 if __name__ == "__main__":
