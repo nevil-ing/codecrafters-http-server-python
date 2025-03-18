@@ -19,7 +19,7 @@ def main():
     server_socket = socket.create_server(("localhost", 4221), reuse_port=True)
     try:
         while True:
-        # wait for a connection
+        # wait for a connectio
          print("waiting for a connection....")
          client_socket, addr = server_socket.accept()
          print(f"Connection from {addr} has been established")
